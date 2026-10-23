@@ -1,58 +1,71 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Sew Love is a volunteer sewing organization making dresses for children in need.">
 <title>Sew Love | Made with Love. Sewn with Purpose.</title>
 <style>
-:root{--red:#b91524;--ink:#302b2a;--cream:#fff8f5}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.6;background:white}a{color:var(--red)}.wrap{max-width:1120px;margin:auto;padding:0 22px}header{text-align:center;padding:25px 0 10px}.logo{width:min(580px,90%);height:auto;display:block;margin:auto}nav{display:flex;justify-content:center;flex-wrap:wrap;gap:9px 24px;padding:18px 10px;border-top:1px solid #f0e4e1;border-bottom:1px solid #f0e4e1}nav a{text-decoration:none;color:#4b3434;font-weight:600;font-size:0.94rem}nav a:hover,nav a:focus{color:var(--red);text-decoration:underline}.hero{position:relative;background:var(--cream)}.hero img{display:block;width:100%;max-width:720px;height:auto;max-height:none;object-fit:contain;margin:0 auto}.hero-message{text-align:center;padding:35px 20px 40px}.hero h1{color:var(--red);font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1.2;margin:0 0 12px}.hero p{font-size:1.12rem;max-width:700px;margin:0 auto}.intro{text-align:center;padding:65px 22px}.intro h2,.cards h2{font-family:Georgia,serif;color:var(--red);font-size:2rem;margin:0 0 15px}.intro p{max-width:760px;margin:0 auto 18px;font-size:1.1rem}.cards{background:var(--cream);padding:55px 0 70px}.cards h2{text-align:center}.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}.card{background:white;border:1px solid #f0e1dd;border-radius:12px;padding:28px;box-shadow:0 3px 15px #5320180b}.card h3{color:var(--red);margin:0 0 10px;font-family:Georgia,serif;font-size:1.4rem}.card p{margin:0 0 15px}.card a{font-weight:bold}.section{padding:62px 22px;max-width:900px;margin:auto;text-align:center;scroll-margin-top:18px}.section h2{font-family:Georgia,serif;color:var(--red);font-size:1.9rem}.section:nth-of-type(even){background:var(--cream)}.note{font-size:.9rem;color:#665c59}footer{background:#84202b;color:white;text-align:center;padding:30px 20px}footer p{margin:5px}footer a{color:white}@media(max-width:700px){.card-grid{grid-template-columns:1fr}nav{gap:10px 16px}.intro{padding:45px 22px}}
-.hero h1 {
-  font-size: 24px !important;
-  line-height: 1.3;
-}.hero img {
-  width: 575px !important;
-  max-width: 90% !important;
-  height: auto !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  display: block;
-  margin: 0 auto;
-}
- #about,
-#about h2,
-#about h3,
-#about p {
-    text-align: left !important;
-}
-}</style>
+:root{--red:#b91524;--ink:#302b2a;--cream:#fff8f5}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.6;background:white}
+a{color:var(--red)}
+.wrap{max-width:1120px;margin:auto;padding:0 22px}
+header{text-align:center;padding:25px 0 10px}
+.logo{width:min(580px,90%);height:auto;display:block;margin:auto}
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:9px 24px;padding:18px 10px;border-top:1px solid #f0e4e1;border-bottom:1px solid #f0e4e1}
+nav a{text-decoration:none;color:#4b3434;font-weight:600;font-size:.94rem}
+nav a:hover,nav a:focus{color:var(--red);text-decoration:underline}
+.hero{position:relative;background:var(--cream)}
+.hero img{display:block;width:575px;max-width:90%;height:auto;max-height:none;object-fit:contain;margin:0 auto}
+.hero-message{text-align:center;padding:35px 20px 40px}
+.hero h1{color:var(--red);font-family:Georgia,serif;font-size:24px;line-height:1.3;margin:0 0 12px}
+.hero p{font-size:1.12rem;max-width:700px;margin:0 auto}
+.intro{text-align:center;padding:65px 22px}
+.intro h2,.cards h2{font-family:Georgia,serif;color:var(--red);font-size:2rem;margin:0 0 15px}
+.intro p{max-width:760px;margin:0 auto 18px;font-size:1.1rem}
+/* About Us: align the content blocks and their text to the same left edge. */
+#about,#about h2,#about h3,#about p{text-align:left}
+#about p{margin-left:0;margin-right:0}
+.cards{background:var(--cream);padding:55px 0 70px}
+.cards h2{text-align:center}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+.card{background:white;border:1px solid #f0e1dd;border-radius:12px;padding:28px;box-shadow:0 3px 15px #5320180b}
+.card h3{color:var(--red);margin:0 0 10px;font-family:Georgia,serif;font-size:1.4rem}
+.card p{margin:0 0 15px}
+.card a{font-weight:bold}
+.section{padding:62px 22px;max-width:900px;margin:auto;text-align:center;scroll-margin-top:18px}
+.section h2{font-family:Georgia,serif;color:var(--red);font-size:1.9rem}
+.section:nth-of-type(even){background:var(--cream)}
+.note{font-size:.9rem;color:#665c59}
+footer{background:#84202b;color:white;text-align:center;padding:30px 20px}
+footer p{margin:5px}
+footer a{color:white}
+@media(max-width:700px){.card-grid{grid-template-columns:1fr}nav{gap:10px 16px}.intro{padding:45px 22px}}
+</style>
 </head>
 <body>
 <header class="wrap" id="home"><img class="logo" src="Sew%20Love%20Logo%20-%20PNG%20file.png" alt="Sew Love logo: red embroidered lettering and needle"></header>
 <nav aria-label="Main navigation"><a href="#home">Home</a><a href="#about">About Us</a><a href="#press">Press &amp; Media</a><a href="#gallery">Gallery</a><a href="#involved">Get Involved</a><a href="#donate">How to Donate</a><a href="#contact">Contact Us</a></nav>
 <main>
 <section class="hero"><img src="Smiling%20Girls%20in%20Sew%20Love%20Dresses.png" alt="Eight smiling girls wearing colorful dresses"><div class="hero-message"><h1>Made with Love. Sewn with Purpose.</h1><p>Sharing kindness, one handmade dress at a time.</p></div></section>
-
-<section class="intro wrap" id="about" style="text-align:left;">
+<section class="intro wrap" id="about">
   <h2>About Sew Love</h2>
   <h3>Made with Love. Sewn with Purpose.</h3>
   <p>Sew Love brings together people who share a love of sewing and a desire to make a difference in the lives of children around the world.</p>
   <p>Our volunteers create beautiful, handmade dresses for young girls who may have never owned a brand-new dress. Each dress is lovingly sewn with the hope of bringing joy, dignity, and a reminder that someone cares.</p>
   <p>Since our project began, we've delivered <strong>more than 1,000 dresses and hundreds of sanitary kits to Uganda and Kenya.</strong></p>
-
   <h3>How Sew Love Works</h3>
   <p>Our volunteers gather once a month to select colorful fabrics and trims from generously donated materials and cut fabric using our dress patterns. Each volunteer then takes the prepared materials home to sew one or more dresses, with many of our dedicated seamstresses creating several dresses between meetings.</p>
   <p>One of our favorite moments is when everyone returns with their finished dresses. Seeing the creativity, beautiful colors, and individual touches makes every gathering a celebration!</p>
-
   <h3>From Our Hands to Their Hearts</h3>
   <p>We partner with North Coast Church in Vista, California, which helps deliver our handmade dresses through its international mission trips.</p>
   <p>These dresses reach girls in communities around the world, where they are personally distributed to the children.</p>
   <p>For our volunteers, knowing that something made with their own hands can bring happiness to a child thousands of miles away is what makes Sew Love so meaningful.</p>
-
   <h3>More Than Sewing</h3>
   <p>Sew Love is also about friendship, creativity, and community. Our volunteers enjoy working together, sharing their talents, and building lasting connections while doing something that truly matters.</p>
   <p><strong>Every dress is a gift of love.</strong></p>
 </section>
-
 <section class="cards"><div class="wrap"><h2>Ways to Connect</h2><div class="card-grid"><article class="card"><h3>Our Story</h3><p>Learn about the people and purpose behind Sew Love.</p><a href="#about">About us →</a></article><article class="card"><h3>Get Involved</h3><p>Join our community of volunteers and help us make a difference.</p><a href="#involved">Volunteer →</a></article><article class="card"><h3>Support Sew Love</h3><p>Find out how donations of supplies and funds can support our work.</p><a href="#donate">Ways to give →</a></article></div></div></section>
 <section class="section" id="gallery"><h2>Gallery</h2><p>We're gathering photos of our dresses, volunteers, and sewing projects. Check back soon!</p></section>
 <section class="section" id="press"><h2>Press &amp; Media</h2><p>We're grateful to our local newspapers for sharing the story of Sew Love and our dedicated volunteers.</p><h3>Sew Love in the News</h3><p><strong>Poway News Chieftain / Rancho Bernardo News Journal</strong><br>August 4, 2026<br><a href="Poway%20sewing%20group%20members%20make%20dresses%20for%20impoverished%20girls%20overseas.pdf" target="_blank">Read the Full Article (PDF)</a></p><p><strong>The San Diego Union-Tribune</strong><br>Sew Love volunteers make dresses for impoverished girls<br><a href="Sew%20Love%20-%20Union%20Tribune.pdf" target="_blank">Read the Newspaper Article (PDF)</a></p></section>
@@ -60,4 +73,5 @@
 <section class="section" id="donate"><h2>How to Donate</h2><p>Donations of fabric, sewing supplies, and financial support help Sew Love continue its mission.</p><p class="note">Donation instructions and tax-status information will be added once confirmed.</p></section>
 <section class="section" id="contact"><h2>Contact Us</h2><p>We look forward to connecting with you!</p><p class="note">Sew Love contact information coming soon.</p></section>
 </main><footer><p><strong>Sew Love</strong> — Made with Love. Sewn with Purpose.</p><p>© 2026 Sew Love</p></footer>
-</body></html>
+</body>
+</html>
