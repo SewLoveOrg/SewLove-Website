@@ -127,6 +127,32 @@ footer a{color:white}
 </section>
 
   
+
+<section class="section" id="volunteers-gallery" style="display:none;">
+  <h2>Our Volunteers at Work</h2>
+  <p>A behind-the-scenes look at our wonderful Sew Love volunteers,
+  working together to create beautiful dresses for girls around the world.</p>
+  <p style="font-style:italic;">Click on any photograph to enlarge it.</p>
+
+  <div id="volunteer-photo-grid"
+       style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:25px;">
+  </div>
+
+<div id="volunteer-viewer" onclick="closeVolunteerViewer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;align-items:center;justify-content:center;">
+  <button type="button" onclick="event.stopPropagation();changeVolunteer(-1)" style="position:absolute;left:15px;top:50%;font-size:32px;cursor:pointer;">&#10094;</button>
+  <img id="large-volunteer" alt="Enlarged Sew Love volunteer photograph" style="max-width:85%;max-height:85vh;object-fit:contain;">
+  <button type="button" onclick="event.stopPropagation();changeVolunteer(1)" style="position:absolute;right:15px;top:50%;font-size:32px;cursor:pointer;">&#10095;</button>
+  <button type="button" onclick="event.stopPropagation();closeVolunteerViewer()" style="position:absolute;right:20px;top:15px;font-size:28px;cursor:pointer;">&times;</button>
+</div>
+
+  <button type="button" onclick="closeVolunteersGallery()"
+          style="margin-top:25px;padding:12px 24px;cursor:pointer;">
+    Close Gallery
+  </button>
+</section>
+ 
+  
+  
   <section class="section" id="press"><h2>Press &amp; Media</h2><p>We're grateful to our local newspapers for sharing the story of Sew Love and our dedicated volunteers.</p><h3>Sew Love in the News</h3><p><strong>Poway News Chieftain / Rancho Bernardo News Journal</strong><br>August 4, 2026<br><a href="Poway%20sewing%20group%20members%20make%20dresses%20for%20impoverished%20girls%20overseas.pdf" target="_blank">Read the Full Article (PDF)</a></p><p><strong>The San Diego Union-Tribune</strong><br>Sew Love volunteers make dresses for impoverished girls<br><a href="Sew%20Love%20-%20Union%20Tribune.pdf" target="_blank">Read the Newspaper Article (PDF)</a></p></section>
 
 
@@ -224,6 +250,54 @@ function closeDressesGallery() {
   document.getElementById("gallery").scrollIntoView({behavior: "smooth"});
 }
 
+
+let currentVolunteer = 1;
+
+const volunteerGrid = document.getElementById("volunteer-photo-grid");
+const volunteerViewer = document.getElementById("volunteer-viewer");
+const largeVolunteer = document.getElementById("large-volunteer");
+
+function displayVolunteers() {
+  volunteerGrid.innerHTML = "";
+
+  for (let i = 1; i <= 12; i++) {
+    const photo = document.createElement("img");
+    photo.src = "V" + i + ".jpg";
+    photo.alt = "Sew Love volunteers at work - photo " + i;
+    photo.style.cssText =
+      "width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;cursor:pointer;";
+    photo.onclick = function() {
+      openVolunteerViewer(i);
+    };
+    volunteerGrid.appendChild(photo);
+  }
+}
+
+function openVolunteerViewer(number) {
+  currentVolunteer = number;
+  largeVolunteer.src = "V" + currentVolunteer + ".jpg";
+  volunteerViewer.style.display = "flex";
+}
+
+function changeVolunteer(direction) {
+  currentVolunteer += direction;
+  if (currentVolunteer < 1) currentVolunteer = 12;
+  if (currentVolunteer > 12) currentVolunteer = 1;
+  largeVolunteer.src = "V" + currentVolunteer + ".jpg";
+}
+
+function closeVolunteerViewer() {
+  volunteerViewer.style.display = "none";
+}
+
+function closeVolunteersGallery() {
+  document.getElementById("volunteers-gallery").style.display = "none";
+  document.getElementById("gallery").scrollIntoView({behavior: "smooth"});
+}
+
+displayVolunteers();
+ 
+  
   displayDresses();
 </script>
 
