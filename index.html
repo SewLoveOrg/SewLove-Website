@@ -76,7 +76,7 @@ footer a{color:white}
   <div class="card-grid" style="text-align:center;">
 
     <article class="card">
-      <a href="#girls-gallery">
+     <a href="#girls-gallery" onclick="document.getElementById('girls-gallery').style.display='block';"> 
         <img src="Thumbnail%20for%20girls.png" alt="Girl wearing a Sew Love dress" style="width:100%;height:210px;object-fit:cover;border-radius:8px;">
         <h3>Smiles Around the World</h3>
       </a>
@@ -127,6 +127,34 @@ footer a{color:white}
 </section>
 
   
+<section class="section" id="girls-gallery" style="display:none;">
+  <h2>Smiles Around the World</h2>
+  <p>A glimpse of the joy that every dress can bring.</p>
+  <p style="font-style:italic;">Click on any photograph to enlarge it.</p>
+
+  <div style="margin-top:25px;">
+    <img src="A5.jpg" alt="Children wearing colorful dresses"
+         onclick="openGirlsViewer(5)"
+         style="width:100%;height:auto;border-radius:8px;cursor:pointer;display:block;">
+
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-top:15px;">
+      <img src="A1.jpg" onclick="openGirlsViewer(1)" alt="Smiles around the world photo 1" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;cursor:pointer;">
+      <img src="A2.jpg" onclick="openGirlsViewer(2)" alt="Smiles around the world photo 2" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;cursor:pointer;">
+      <img src="A3.jpg" onclick="openGirlsViewer(3)" alt="Smiles around the world photo 3" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;cursor:pointer;">
+      <img src="A4.jpg" onclick="openGirlsViewer(4)" alt="Smiles around the world photo 4" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;cursor:pointer;">
+    </div>
+  </div>
+
+  <div id="girls-viewer" onclick="closeGirlsViewer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;align-items:center;justify-content:center;">
+    <button type="button" onclick="event.stopPropagation();changeGirls(-1)" style="position:absolute;left:15px;top:50%;font-size:32px;cursor:pointer;">&#10094;</button>
+    <img id="large-girls" alt="Enlarged photograph" style="max-width:85%;max-height:85vh;object-fit:contain;">
+    <button type="button" onclick="event.stopPropagation();changeGirls(1)" style="position:absolute;right:15px;top:50%;font-size:32px;cursor:pointer;">&#10095;</button>
+    <button type="button" onclick="event.stopPropagation();closeGirlsViewer()" style="position:absolute;right:20px;top:15px;font-size:28px;cursor:pointer;">&times;</button>
+  </div>
+
+  <button type="button" onclick="closeGirlsGallery()" style="margin-top:25px;padding:12px 24px;cursor:pointer;">Close Gallery</button>
+</section>
+
 
 <section class="section" id="volunteers-gallery" style="display:none;">
   <h2>Our Volunteers at Work</h2>
@@ -297,6 +325,30 @@ function closeVolunteersGallery() {
 
 displayVolunteers();
  
+
+let currentGirlPhoto = 5;
+
+function openGirlsViewer(number) {
+  currentGirlPhoto = number;
+  document.getElementById("large-girls").src = "A" + number + ".jpg";
+  document.getElementById("girls-viewer").style.display = "flex";
+}
+
+function changeGirls(direction) {
+  currentGirlPhoto += direction;
+  if (currentGirlPhoto < 1) currentGirlPhoto = 5;
+  if (currentGirlPhoto > 5) currentGirlPhoto = 1;
+  document.getElementById("large-girls").src = "A" + currentGirlPhoto + ".jpg";
+}
+
+function closeGirlsViewer() {
+  document.getElementById("girls-viewer").style.display = "none";
+}
+
+function closeGirlsGallery() {
+  document.getElementById("girls-gallery").style.display = "none";
+  document.getElementById("gallery").scrollIntoView({behavior: "smooth"});
+}
   
   displayDresses();
 </script>
