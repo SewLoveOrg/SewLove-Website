@@ -99,7 +99,27 @@ footer a{color:white}
   </div>
 </section>
 
-<section class="section" id="press"><h2>Press &amp; Media</h2><p>We're grateful to our local newspapers for sharing the story of Sew Love and our dedicated volunteers.</p><h3>Sew Love in the News</h3><p><strong>Poway News Chieftain / Rancho Bernardo News Journal</strong><br>August 4, 2026<br><a href="Poway%20sewing%20group%20members%20make%20dresses%20for%20impoverished%20girls%20overseas.pdf" target="_blank">Read the Full Article (PDF)</a></p><p><strong>The San Diego Union-Tribune</strong><br>Sew Love volunteers make dresses for impoverished girls<br><a href="Sew%20Love%20-%20Union%20Tribune.pdf" target="_blank">Read the Newspaper Article (PDF)</a></p></section>
+
+<section class="section" id="dresses-gallery">
+  <h2>Dresses Made with Love</h2>
+  <p>A glimpse of the many beautiful dresses lovingly created by Sew Love volunteers,<br>each one made with care to brighten a young girl's life.</p>
+
+  <div id="dress-photo-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px;margin-top:25px;"></div>
+
+  <button id="more-dresses" type="button" onclick="showMoreDresses()" style="margin-top:25px;padding:12px 24px;cursor:pointer;">
+    View More Dresses
+  </button>
+
+  <div id="dress-viewer" onclick="closeDressViewer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;align-items:center;justify-content:center;">
+    <button type="button" onclick="event.stopPropagation();changeDress(-1)" style="position:absolute;left:15px;top:50%;font-size:32px;cursor:pointer;">&#10094;</button>
+    <img id="large-dress" alt="Enlarged Sew Love dress" style="max-width:85%;max-height:85vh;object-fit:contain;">
+    <button type="button" onclick="event.stopPropagation();changeDress(1)" style="position:absolute;right:15px;top:50%;font-size:32px;cursor:pointer;">&#10095;</button>
+    <button type="button" onclick="event.stopPropagation();closeDressViewer()" style="position:absolute;right:20px;top:15px;font-size:28px;cursor:pointer;">&times;</button>
+  </div>
+</section>
+
+  
+  <section class="section" id="press"><h2>Press &amp; Media</h2><p>We're grateful to our local newspapers for sharing the story of Sew Love and our dedicated volunteers.</p><h3>Sew Love in the News</h3><p><strong>Poway News Chieftain / Rancho Bernardo News Journal</strong><br>August 4, 2026<br><a href="Poway%20sewing%20group%20members%20make%20dresses%20for%20impoverished%20girls%20overseas.pdf" target="_blank">Read the Full Article (PDF)</a></p><p><strong>The San Diego Union-Tribune</strong><br>Sew Love volunteers make dresses for impoverished girls<br><a href="Sew%20Love%20-%20Union%20Tribune.pdf" target="_blank">Read the Newspaper Article (PDF)</a></p></section>
 
 
 
@@ -139,5 +159,59 @@ footer a{color:white}
 </section>
 
 </main><footer><p><strong>Sew Love</strong> — Made with Love. Sewn with Purpose.</p><p>© 2026 Sew Love</p></footer>
+
+
+<script>
+  let currentDress = 1;
+  let visibleDresses = 16;
+
+  const dressGrid = document.getElementById("dress-photo-grid");
+  const moreButton = document.getElementById("more-dresses");
+  const dressViewer = document.getElementById("dress-viewer");
+  const largeDress = document.getElementById("large-dress");
+
+  function displayDresses() {
+    dressGrid.innerHTML = "";
+
+    for (let i = 1; i <= visibleDresses; i++) {
+      const photo = document.createElement("img");
+      photo.src = "D" + i + ".jpg";
+      photo.alt = "Sew Love dress D" + i;
+      photo.style.cssText =
+        "width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;cursor:pointer;";
+      photo.onclick = function() {
+        openDressViewer(i);
+      };
+      dressGrid.appendChild(photo);
+    }
+
+    moreButton.style.display = visibleDresses >= 32 ? "none" : "inline-block";
+  }
+
+  function showMoreDresses() {
+    visibleDresses = 32;
+    displayDresses();
+  }
+
+  function openDressViewer(number) {
+    currentDress = number;
+    largeDress.src = "D" + currentDress + ".jpg";
+    dressViewer.style.display = "flex";
+  }
+
+  function changeDress(direction) {
+    currentDress += direction;
+    if (currentDress < 1) currentDress = 32;
+    if (currentDress > 32) currentDress = 1;
+    largeDress.src = "D" + currentDress + ".jpg";
+  }
+
+  function closeDressViewer() {
+    dressViewer.style.display = "none";
+  }
+
+  displayDresses();
+</script>
+
 </body>
 </html>
