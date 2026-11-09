@@ -387,7 +387,7 @@ const largeVolunteer = document.getElementById("large-volunteer");
 function displayVolunteers() {
   volunteerGrid.innerHTML = "";
 
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 1; i <= 15; i++) {
     const photo = document.createElement("img");
     photo.src = "V" + i + ".jpg";
     photo.alt = "Sew Love volunteers at work - photo " + i;
@@ -408,8 +408,8 @@ function openVolunteerViewer(number) {
 
 function changeVolunteer(direction) {
   currentVolunteer += direction;
-  if (currentVolunteer < 1) currentVolunteer = 12;
-  if (currentVolunteer > 12) currentVolunteer = 1;
+  if (currentVolunteer < 1) currentVolunteer = 15;
+  if (currentVolunteer > 15) currentVolunteer = 1;
   largeVolunteer.src = "V" + currentVolunteer + ".jpg";
 }
 
